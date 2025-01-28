@@ -5,58 +5,126 @@
 `GitHub Hosts`主要是通过修改`host`的方式加速`GitHub`访问，解决图片无法加载以及访问速度慢的问题。
 
 - 主站: https://github.com/ineo6/hosts
-- 镜像地址: https://gitee.com/ineo6/hosts
+- 镜像: https://gitlab.com/ineo6/hosts
+- Github Pages: https://ineo6.github.io/hosts/
+
+全新的`GitHub`访问加速工具，等待试用和反馈中，点击 [FastDev](https://github.com/ineo6/fast-dev) 直达。
+
+特点就是稳定！
+
+> `hosts`地址可能会调整，所以请务必关注GitHub、Gitlab主页，保证不迷路，也可以关注公众号：湖中剑。
 
 ## 使用方式
 
-### hosts
+### 1. 远程hosts
 
-内容定时更新，最近更新时间：2022-04-21 09:03:01。
+现在新增了`DNS`获取方案，欢迎使用并反馈。
+
+请查看 [next hosts](https://gitlab.com/ineo6/hosts/-/raw/master/next-hosts)
+
+内容定时更新，最近更新时间：2023-03-08 20:22:25。
 
 ```bash
+# New！欢迎使用基于DNS的新方案
+# https://gitlab.com/ineo6/hosts/-/raw/master/next-hosts
+# 地址可能会变动，请务必关注GitHub、Gitlab获取最新消息
+# 也可以关注公众号：湖中剑，保证不迷路
 # GitHub Host Start
 
-185.199.108.154              github.githubassets.com
-140.82.113.21                central.github.com
-185.199.108.133              desktop.githubusercontent.com
-185.199.108.153              assets-cdn.github.com
-185.199.108.133              camo.githubusercontent.com
-185.199.108.133              github.map.fastly.net
-199.232.69.194               github.global.ssl.fastly.net
-140.82.113.4                 gist.github.com
-185.199.108.153              github.io
-140.82.112.3                 github.com
-140.82.112.5                 api.github.com
-185.199.108.133              raw.githubusercontent.com
-185.199.108.133              user-images.githubusercontent.com
-185.199.108.133              favicons.githubusercontent.com
-185.199.108.133              avatars5.githubusercontent.com
-185.199.108.133              avatars4.githubusercontent.com
-185.199.108.133              avatars3.githubusercontent.com
-185.199.108.133              avatars2.githubusercontent.com
-185.199.108.133              avatars1.githubusercontent.com
-185.199.108.133              avatars0.githubusercontent.com
-185.199.108.133              avatars.githubusercontent.com
-140.82.113.10                codeload.github.com
-52.217.48.100                github-cloud.s3.amazonaws.com
-54.231.134.57                github-com.s3.amazonaws.com
-52.217.106.212               github-production-release-asset-2e65be.s3.amazonaws.com
-52.217.228.121               github-production-user-asset-6210df.s3.amazonaws.com
-52.216.248.12                github-production-repository-file-5c1aeb.s3.amazonaws.com
-185.199.108.153              githubstatus.com
-64.71.144.211                github.community
-185.199.108.133              media.githubusercontent.com
-185.199.108.133              objects.githubusercontent.com
-185.199.108.133              raw.github.com
-
 # Please Star : https://github.com/ineo6/hosts
-# Mirror Repo : https://gitee.com/ineo6/hosts
-# Update at: 2022-04-21 09:03:01
+# Mirror Repo : https://gitlab.com/ineo6/hosts
+
+# Update at: 2023-03-08 20:22:25
 
 # GitHub Host End
 ```
 
-### 手动配置hosts
+### 2. 本地 hosts 服务
+
+本地 `hosts` 服务获取到的`ip`是经过本地测试，所以成功率较高。
+
+而且会定时获取最新的`ip`，尽可能保证访问。
+
+注意，该方案需要结合`SwitchHosts`一起使用，或者你也可以直接访问地址，手动复制。
+
+#### macOS (Intel)
+
+执行下面命令, 服务会运行在： http://localhost:8888
+
+```bash
+curl -L https://github.com/ineo6/hosts/releases/download/v1.0.1/hosts-server-pkg-mac-x64.tar.gz | tar xzvf -
+xattr -d com.apple.quarantine ./hosts-server-pkg-mac-x64/hosts-server
+./hosts-server-pkg-mac-x64/hosts-server --port=8888
+```
+
+#### macOS (Apple Silicon)
+
+执行下面命令, 服务会运行在： http://localhost:8888
+
+```bash
+curl -L https://github.com/ineo6/hosts/releases/download/v1.0.1/hosts-server-pkg-mac-arm64.tar.gz | tar xzvf -
+./hosts-server-pkg-mac-arm64/hosts-server --port=8888
+```
+
+#### Linux (x64, amd64)
+
+执行下面命令, 服务会运行在： http://localhost:8888
+
+```bash
+curl -L https://github.com/ineo6/hosts/releases/download/v1.0.1/hosts-server-pkg-linuxstatic-x64.tar.gz | tar xzvf -
+./hosts-server-pkg-linuxstatic-x64/hosts-server --port=8888
+```
+
+#### Linux (ARM64)
+
+执行下面命令, 服务会运行在： http://localhost:8888
+
+```bash
+curl -L https://github.com/ineo6/hosts/releases/download/v1.0.1/hosts-server-pkg-linuxstatic-arm64.tar.gz | tar xzvf -
+./hosts-server-pkg-linuxstatic-arm64/hosts-server --port=8888
+```
+
+#### Run on Linux (ARMv7 32bit)
+
+执行下面命令, 服务会运行在： http://localhost:8888
+
+```bash
+curl -L https://github.com/ineo6/hosts/releases/download/v1.0.1/hosts-server-pkg-linuxstatic-armv7.tar.gz | tar xzvf -
+./hosts-server-pkg-linuxstatic-armv7/hosts-server --port=8888
+```
+
+### Windows
+
+下载 https://github.com/ineo6/hosts/releases/download/v1.0.1/hosts-server-pkg-win-x64.zip ，解压后执行下面命令，服务会运行在： http://localhost:8888
+
+```bash
+.\hosts-server.exe --port=8888
+```
+
+## 配置hosts教程
+
+### 通过 SwitchHosts 自动更新
+
+这里推荐使用 `SwitchHosts` 配置`hosts`，操作很简单，支持跨平台。
+
+> 注意：首次使用先备份下本地hosts。
+
+详细介绍可以阅读 [SwitchHosts! 还能这样管理hosts，后悔没早点用](https://mp.weixin.qq.com/s/A37XnD3HdcGSWUflj6JujQ) 。
+
+#### 操作步骤
+
+添加一条规则：
+
+- 方案名：GitHub（可以自行命名）
+- 类型：远程
+- URL 地址：https://gitlab.com/ineo6/hosts/-/raw/master/hosts
+- 自动更新：1个小时（时间可自行调整）
+
+这样就可以和最新的`hosts`保持同步。
+
+![switchhost-github.png](https://i.loli.net/2021/03/28/XnHW5xCEzel36fA.png)
+
+### 手动配置
 
 #### macOS
 
@@ -94,35 +162,10 @@ sudo killall -HUP mDNSResponder
 ipconfig /flushdns
 ```
 
-### 通过 SwitchHosts! 自动更新
-
-这里推荐使用 `SwitchHosts!` 配置`hosts`，操作很简单，支持跨平台。
-
-详细介绍可以阅读 [SwitchHosts! 还能这样管理hosts，后悔没早点用](https://mp.weixin.qq.com/s/A37XnD3HdcGSWUflj6JujQ) 。
-
-#### 手动配置
-
-添加一条`hosts`规则并启用，然后复制前文`hosts`内容即可。
-
-如果你想保持和云端最新规则同步，可以用下面的配置方式。
-
-#### 定时同步
-
-添加一条规则：
-
-- 方案名：GitHub（可以自行命名）
-- 类型：远程
-- URL 地址：https://gitee.com/ineo6/hosts/raw/master/hosts
-- 自动更新：1个小时
-
-这样就可以和最新的`hosts`保持同步。
-
-![switchhost-github.png](https://i.loli.net/2021/03/28/XnHW5xCEzel36fA.png)
-
 ## 我的作品
 
 - [GitMaster](https://github.com/ineo6/git-master)：开发者助手，代码仓库结构浏览器扩展
-- [Weekly 周刊](https://github.com/ineo6/weekly)：我的前端周刊，GitHub周刊
 - [homebrew-install](https://github.com/ineo6/homebrew-install)：Homebrew快速安装教程和脚本
 - [GitHub Hosts](https://github.com/ineo6/hosts)：GitHub最新hosts，定时更新
+- [Awesome Mirror](https://github.com/ineo6/awesome-mirror)：镜像收集，旨在帮助你快速安装开发工具
 - [mp-ci](https://github.com/ineo6/mp-ci)：微信小程序、小游戏发布助手（CI）
